@@ -1,11 +1,17 @@
-from typing import List
-from uuid import uuid4
 from fastapi import FastAPI
-from models import Blog
+from backend.models import Blog
+from backend.crud import create_blog, fetch_all_blogs
 
 app = FastAPI()
 
 
-@app.get("/")
-async def root():
-    return {"message": "Hello World"}
+@app.post("/create_blog", response_description="Create a new blog")
+async def new_blog(blog: Blog):
+    await create_blog(blog)
+    return blog
+
+
+@app.get("/get_all_blogs", response_description="Get the list of all blogs")
+async def get_all_blogs():
+    todos = await fetch_all_blogs()
+    return todos
