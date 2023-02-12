@@ -17,3 +17,8 @@ async def create_blog(blog: Blog):
 async def fetch_all_blogs():
     blogs = blog_collection.find()
     return json.loads(json_util.dumps(blogs))
+
+
+async def get_blog_by_id(id):
+    blogs = blog_collection.find({'_id': id})
+    return json.loads(json_util.dumps(blogs))

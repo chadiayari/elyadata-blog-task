@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from backend.models import Blog
-from backend.crud import create_blog, fetch_all_blogs
+from backend.crud import create_blog, fetch_all_blogs, get_blog_by_id
 
 app = FastAPI()
 
@@ -13,5 +13,11 @@ async def new_blog(blog: Blog):
 
 @app.get("/get_all_blogs", response_description="Get the list of all blogs")
 async def get_all_blogs():
-    todos = await fetch_all_blogs()
-    return todos
+    blogs = await fetch_all_blogs()
+    return blogs
+
+
+@app.get("/get_blog_by_id/{id}", response_description="Get the list of all blogs")
+async def get_all_blogs(id: str):
+    blog = await get_blog_by_id(id)
+    return blog
