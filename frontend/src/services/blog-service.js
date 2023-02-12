@@ -8,6 +8,11 @@ class BlogService {
     if (response.data == null) return;
     return response.data;
   }
+
+  async createBlog(data) {
+    const response = await axios.post("create_blog", data);
+    return response;
+  }
 }
 
 export default new BlogService();

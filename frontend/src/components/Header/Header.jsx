@@ -1,10 +1,18 @@
-import React from "react";
+import { Link } from "react-router-dom";
 
-export default function Header(props) {
+import cn from "classnames";
+import styles from "./styles.css";
+
+const Header = () => {
   return (
-    <div className="header">
-      <h1>{props.title}</h1>
-      <p>{props.subtitle}</p>
-    </div>
+    <header id="header" class="fixed-top">
+      <center>
+        <a href="create-blog" class="appointment-btn">
+          Create a new blog
+        </a>
+      </center>
+    </header>
   );
-}
+};
+
+export default Header;

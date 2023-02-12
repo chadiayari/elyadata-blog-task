@@ -6,7 +6,7 @@ import Footer from "./components/Footer/Footer";
 function App() {
   return (
     <>
-      {/* <Header title="My header" subtitle="subtitle2" /> */}
+      <Header title="My header" subtitle="subtitle2" />
       <Routes>
         <Route path="/" exact element={<Home />} />
       </Routes>
