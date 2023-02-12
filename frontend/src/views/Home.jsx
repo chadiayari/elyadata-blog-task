@@ -15,7 +15,7 @@ export default function Home() {
   });
 
   useEffect(() => {
-    blogService.getAllBlogs().then((data) => setBlogsData(data));
+    blogService.getAllBlogs().then((data) => console.log(data));
   }, []);
 
   const handleSearchChanged = (key, value) => {};

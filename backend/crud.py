@@ -3,6 +3,8 @@ from .models import Blog
 from fastapi import status
 from fastapi.encoders import jsonable_encoder
 from fastapi.responses import JSONResponse
+import json
+from bson import json_util
 
 
 async def create_blog(blog: Blog):
@@ -13,5 +15,5 @@ async def create_blog(blog: Blog):
 
 
 async def fetch_all_blogs():
-    blogs = blog_collection.find({}, {'_id': 0})
-    return list(blogs)
+    blogs = blog_collection.find()
+    return json.loads(json_util.dumps(blogs))
