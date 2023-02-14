@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import cn from "classnames";
 import styles from "./Card.module.scss";
+import Buttons from "../Buttons";
 
 const Card = ({ className, item }) => {
   return (
@@ -25,7 +26,8 @@ const Card = ({ className, item }) => {
             dangerouslySetInnerHTML={{ __html: item?.count }}
           />
         </div>
-      </Link>
+      </Link>{" "}
+      <Buttons />
     </div>
   );
 };

@@ -1,8 +1,8 @@
-import React, { useState } from "react";
-import cn from "classnames";
+import React, { useState, useEffect } from "react";
 import blogService from "../../services/blog-service";
 import { useNavigate } from "react-router-dom";
 import styles from "./styles.css";
+import cn from "classnames";
 
 export default function CreateBlog() {
   const [blogName, setBlogName] = useState("");
@@ -48,65 +48,72 @@ export default function CreateBlog() {
   return (
     <>
       <div className={cn("wrapper")}>
-        <form onSubmit={() => handleSubmit()} className="form-container">
-          <h2>Create a new blog</h2>
+        <form onSubmit={handleSubmit} className="form-container">
+          <h4>Create a new blog</h4>
           <div className="form-element-container">
             <div className="form-element">
-              <label>Title:</label>
-              <input
-                type="text"
-                name="name"
-                placeholder="Blog title"
-                value={blogName}
-                onChange={(e) => handleBlogName(e)}
-                required
-              />
+              <label>
+                Blog name:
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="Blog name"
+                  value={blogName}
+                  onChange={(e) => handleBlogName(e)}
+                  required
+                />
+              </label>
             </div>
           </div>
           <div className="form-element-container">
             <div className="form-element">
-              <label>Written by:</label>
-              <input
-                type="text"
-                name="Write you name"
-                placeholder="Author"
-                value={author}
-                onChange={(e) => handleAuthor(e)}
-                required
-              />
+              <label>
+                Blog content:
+                <input
+                  type="text"
+                  name="blog_content"
+                  rows="5"
+                  cols="50"
+                  placeholder="Blog content"
+                  value={blogContent}
+                  onChange={(e) => handleBlogContent(e)}
+                  required
+                />
+              </label>
             </div>
           </div>
           <div className="form-element-container">
             <div className="form-element">
-              <label>Blog image url:</label>
-              <input
-                type="text"
-                id="blog-image"
-                name="blog_image"
-                placeholder="Blog image URL"
-                value={blogImage}
-                onChange={(e) => handleBlogImage(e)}
-                required
-              />
+              <label>
+                Blog image:
+                <input
+                  type="text"
+                  name="blog_image"
+                  placeholder="Blog image"
+                  value={blogImage}
+                  onChange={(e) => handleBlogImage(e)}
+                  required
+                />
+              </label>
             </div>
           </div>
-
           <div className="form-element-container">
             <div className="form-element">
-              <label>Body</label>
-              <textarea
-                name="blog_content"
-                rows="5"
-                cols="50"
-                placeholder="Blog content"
-                value={blogContent}
-                onChange={(e) => handleBlogContent(e)}
-                required
-              ></textarea>
+              <label>
+                Author name:
+                <input
+                  type="text"
+                  name="author_name"
+                  placeholder="Author"
+                  value={author}
+                  onChange={(e) => handleAuthor(e)}
+                  required
+                />
+              </label>
             </div>
-          </div>
+          </div>{" "}
           <div className="form-element">
-            <button type="submit">Create</button>
+            <input type="submit" value="Submit" />
           </div>
         </form>
       </div>

@@ -5,6 +5,7 @@ import cn from "classnames";
 import { HiOutlineSearch } from "react-icons/hi";
 import blogService from "../services/blog-service";
 import { searchService } from "../utils/hooks/utils";
+import Buttons from "../components/Buttons";
 
 export default function Home() {
   const [blogsData, setBlogsData] = useState([]);
