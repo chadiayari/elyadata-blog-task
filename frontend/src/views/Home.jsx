@@ -4,21 +4,25 @@ import Card from "../components/Card";
 import cn from "classnames";
 import { HiOutlineSearch } from "react-icons/hi";
 import blogService from "../services/blog-service";
+import { searchService } from "../utils/hooks/utils";
 
 export default function Home() {
   const [blogsData, setBlogsData] = useState([]);
-  const [search, setSearch] = useState({
-    aircraft_name: "",
-    category: "",
-    in_production: "",
-    model: "",
-  });
+  const [blogsFilteredData, setBlogsFilteredData] = useState([]);
+  const [search, setSearch] = useState("");
 
   useEffect(() => {
     blogService.getAllBlogs().then((data) => setBlogsData(data));
   }, []);
 
-  const handleSearchChanged = (key, value) => {};
+  useEffect(() => {}, [search]);
+
+  const handleSearchChanged = (e) => {
+    setSearch(e.target.value);
+    var res = blogService.searchBlogName(e.target.value);
+    setBlogsFilteredData(res);
+    console.log(res);
+  };
 
   return (
     <div className={cn("section-pt80", styles.section)}>
@@ -29,34 +33,35 @@ export default function Home() {
               <div className={styles.title}>Elyadata Blog</div>
             </div>
             <div className={styles.form}>
-              <form className={styles.search} action="">
-                <input
-                  className={styles.input}
-                  type="text"
-                  value={search.aircraft_name}
-                  onChange={(e) =>
-                    handleSearchChanged("aircraft_name", e.target.value)
-                  }
-                  name="search"
-                  placeholder="Search Blog"
-                  required
-                />
-                <button className={styles.result}>
-                  <HiOutlineSearch name="search" size="16" />
-                </button>
-              </form>
+              <input
+                className={styles.input}
+                type="text"
+                value={search}
+                onChange={(e) => handleSearchChanged(e)}
+                name="search"
+                placeholder="Search blog name"
+                required
+              />
             </div>
           </div>
           <div>
             <div className={styles.wrapper}>
               <div className={styles.list}>
-                {blogsData?.map((blog) => (
-                  <Card
-                    className={styles.card}
-                    item={blog}
-                    key={blog.blog_name}
-                  />
-                ))}
+                {blogsFilteredData?.length
+                  ? blogsFilteredData?.map((blog) => (
+                      <Card
+                        className={styles.card}
+                        item={blog}
+                        key={blog._id}
+                      />
+                    ))
+                  : blogsData?.map((blog) => (
+                      <Card
+                        className={styles.card}
+                        item={blog}
+                        key={blog._id}
+                      />
+                    ))}
               </div>
             </div>
           </div>

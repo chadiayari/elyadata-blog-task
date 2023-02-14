@@ -15,6 +15,12 @@ class BlogService {
     return response.data;
   }
 
+  async searchBlogName(name) {
+    const response = await axios.get(API_URL + "search_blog/" + name);
+    if (response.data == null) return;
+    return response.data;
+  }
+
   async createBlog(data) {
     const response = await axios.post("create_blog", data);
     return response;
