@@ -1,0 +1,26 @@
+.dis-like-buttons {
+    display: inline-block;
+}
+
+button {
+    width: 50px;
+    height: 35px;
+    margin: 0.5rem;
+    border-radius: 15px;
+    border: 1px solid;
+    background-color: #fff;
+    border-color: #fff;
+}
+
+.active {
+    background-color: #ccd9e4;
+
+}
+
+.like-button {
+    color: #00b354;
+}
+
+.dislike-button {
+    color: #b82c2c;
+}

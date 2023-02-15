@@ -1,0 +1,101 @@
+input[type=text] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+}
+
+.form-name {
+    padding: 7% 0 7% 0%;
+    font-weight: 500;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+    background-color: #f5f5f5;
+}
+
+
+.wrapper .form-container {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+}
+
+.wrapper .form-container .form-element-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    width: 50%;
+    height: 20%;
+}
+
+.wrapper .form-container .form-element-container .form-element {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+.wrapper .form-container .form-element-container .form-element label {
+    font-size: 16px;
+    font-weight: 400;
+    margin-bottom: 5px;
+    margin-left: 5px;
+}
+
+.wrapper .form-container .form-element-container .form-element input {
+    max-width: 100%;
+    height: 40px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 0 10px;
+    outline: none;
+}
+
+.wrapper .form-container .form-element-container .form-element input::placeholder {
+    font-weight: 100;
+}
+
+
+.wrapper .form-container .form-element-container .form-element textarea {
+    min-width: 100%;
+    height: 150px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    outline: none;
+}
+
+input[type=submit] {
+    max-width: 100%;
+    height: 40px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-weight: 600;
+    outline: none;
+    background-color: #1977cc;
+    cursor: pointer;
+    margin-top: 25px;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+input[type=submit]:hover {
+    background-color: #166ab5;
+}

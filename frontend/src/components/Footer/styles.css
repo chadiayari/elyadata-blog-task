@@ -1,0 +1,19 @@
+footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(231, 231, 231);
+    color: rgb(75, 75, 75);
+    padding: 10px 200px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    margin-top: 60px;
+}
+
+footer .icons {
+    display: flex;
+    gap: 20px;
+    font-size: larger;
+}

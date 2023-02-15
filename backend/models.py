@@ -1,5 +1,3 @@
-from typing import Optional
-from uuid import UUID, uuid4
 from pydantic import BaseModel, Field
 from bson import ObjectId
 
@@ -26,6 +24,8 @@ class Blog(BaseModel):
     blog_content: str
     blog_image: str
     author: str
+    nb_likes: int
+    nb_dislikes: int
 
     class Config:
         allow_population_by_field_name = True
@@ -37,5 +37,7 @@ class Blog(BaseModel):
                 "blog_content": "lorem ipsium",
                 "blog_image": "image_url",
                 "author": "Name Last Name",
+                "nb_likes": 0,
+                "nb_dislikes": 0,
             }
         }

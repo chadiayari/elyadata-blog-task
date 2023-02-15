@@ -3,6 +3,8 @@ from .models import Blog
 from fastapi import status
 from fastapi.encoders import jsonable_encoder
 from fastapi.responses import JSONResponse
+import json
+from bson import json_util
 
 
 async def create_blog(blog: Blog):
@@ -13,5 +15,24 @@ async def create_blog(blog: Blog):
 
 
 async def fetch_all_blogs():
-    blogs = blog_collection.find({}, {'_id': 0})
-    return list(blogs)
+    blog = blog_collection.find()
+    return json.loads(json_util.dumps(blog))
+
+
+async def get_blog_by_id(id):
+    blog = blog_collection.find({'_id': id})
+    return json.loads(json_util.dumps(blog))
+
+
+async def search_blog(term):
+    blog = blog_collection.find(
+        {'blog_name': term})
+    return json.loads(json_util.dumps(blog))
+
+
+async def update_nb_likes(id, nbLikes, nbDislikes):
+    updated_blog = blog_collection.find_one_and_update(
+        {"_id": id}, {"$set": {"nb_likes": nbLikes, "nb_dislikes": nbDislikes}}
+    )
+
+    return json.loads(json_util.dumps(updated_blog))
