@@ -44,18 +44,20 @@ export default function Buttons({ blog_id, nb_likes, nb_dislikes }) {
 
   return (
     <>
-      <button
-        onClick={() => handleLikeClicked()}
-        className={c({ ["active"]: likeActive })}
-      >
-        <i className="fa fa-thumbs-up like-button"></i> {like}
-      </button>{" "}
-      <button
-        className={c({ ["active"]: dislikeActive })}
-        onClick={() => handleDislikeClicked()}
-      >
-        <i className="fa fa-thumbs-down dislike-button"> </i> {dislike}
-      </button>
+      <div className="dis-like-buttons">
+        <button
+          onClick={() => handleLikeClicked()}
+          className={c({ ["active"]: likeActive })}
+        >
+          <i className="fa fa-thumbs-up like-button"></i> {like}
+        </button>
+        <button
+          className={c({ ["active"]: dislikeActive })}
+          onClick={() => handleDislikeClicked()}
+        >
+          <i className="fa fa-thumbs-down dislike-button"> </i> {dislike}
+        </button>
+      </div>
     </>
   );
 }

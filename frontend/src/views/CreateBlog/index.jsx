@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import blogService from "../../services/blog-service";
 import { useNavigate } from "react-router-dom";
+import styles from "./styles.css";
 import cn from "classnames";
 
 export default function CreateBlog() {
@@ -8,6 +9,8 @@ export default function CreateBlog() {
   const [blogContent, setBlogContent] = useState("");
   const [blogImage, setBlogImage] = useState("");
   const [author, setAuthor] = useState("");
+  const [isSubmitted, setIsSubmitted] = useState(false);
+
   const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
@@ -46,7 +49,9 @@ export default function CreateBlog() {
     <>
       <div className={cn("wrapper")}>
         <form onSubmit={handleSubmit} className="form-container">
-          <h4>Create a new blog</h4>
+          <div className="form-name">
+            <p>Create a new blog</p>
+          </div>
           <div className="form-element-container">
             <div className="form-element">
               <label>
