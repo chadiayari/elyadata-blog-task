@@ -25,6 +25,14 @@ class BlogService {
     const response = await axios.post("create_blog", data);
     return response;
   }
+
+  async updateLikesAndDislikes(id, nb_likes, nb_dislikes) {
+    const response = await axios.put(
+      API_URL +
+        `update_likes?id=${id}&nb_likes=${nb_likes}&nb_dislikes=${nb_dislikes}`
+    );
+    return response;
+  }
 }
 
 export default new BlogService();

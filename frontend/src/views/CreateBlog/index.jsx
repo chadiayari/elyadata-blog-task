@@ -22,8 +22,9 @@ export default function CreateBlog() {
       blog_content: blogContent,
       blog_image: blogImage,
       author: author,
+      nb_likes: 0,
+      nb_dislikes: 0,
     });
-    console.log(res);
     if (res.status == 200) {
       navigate("/");
     }

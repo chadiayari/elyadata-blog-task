@@ -6,7 +6,16 @@ import Buttons from "../Buttons";
 
 const Card = ({ className, item }) => {
   return (
-    <div className={cn(styles.card, className)} aria-hidden="true">
+    <div
+      className={
+        item.nb_likes > item.nb_dislikes
+          ? cn(styles.greencard, className)
+          : cn(styles.redcard, className)
+      }
+      aria-hidden="true"
+    >
+      {item.nb_likes}
+      {item.nb_dislikes}
       <Link to={`/blog/${item?._id}`}>
         <div className={styles.preview}>
           <img src={`${item?.blog_image}`} alt={`${item?.blog_image}`} />
@@ -26,8 +35,12 @@ const Card = ({ className, item }) => {
             dangerouslySetInnerHTML={{ __html: item?.count }}
           />
         </div>
-      </Link>{" "}
-      <Buttons />
+      </Link>
+      <Buttons
+        blog_id={item._id}
+        nb_likes={item.nb_likes}
+        nb_dislikes={item.nb_dislikes}
+      />
     </div>
   );
 };

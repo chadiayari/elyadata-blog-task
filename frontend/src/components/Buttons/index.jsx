@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import c from "classnames";
 import "./styles.css";
+import blogService from "../../services/blog-service";
 
-export default function Buttons() {
-  const [like, setLike] = useState(23);
-  const [dislike, setDislike] = useState(23);
+export default function Buttons({ blog_id, nb_likes, nb_dislikes }) {
+  const [like, setLike] = useState(nb_likes);
+  const [dislike, setDislike] = useState(nb_dislikes);
   const [likeActive, setLikeActive] = useState(false);
   const [dislikeActive, setDislikeActive] = useState(false);
 
@@ -16,6 +17,14 @@ export default function Buttons() {
     setLikeActive(!likeActive);
     setLike(likeActive ? like - 1 : like + 1);
   };
+
+  const updateApi = async () => {
+    var res = await blogService.updateLikesAndDislikes(blog_id, like, dislike);
+  };
+
+  useEffect(() => {
+    updateApi();
+  }, [like, dislike]);
 
   const handleLikeClicked = () => {
     if (dislikeActive) {
