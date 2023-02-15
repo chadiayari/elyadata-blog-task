@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import blogService from "../../services/blog-service";
 import { useNavigate } from "react-router-dom";
-import styles from "./styles.css";
 import cn from "classnames";
 
 export default function CreateBlog() {
@@ -9,9 +8,6 @@ export default function CreateBlog() {
   const [blogContent, setBlogContent] = useState("");
   const [blogImage, setBlogImage] = useState("");
   const [author, setAuthor] = useState("");
-  const [isSubmitted, setIsSubmitted] = useState(false);
-
-  const handleSubmitForm = () => {};
   const navigate = useNavigate();
 
   const handleSubmit = async (event) => {

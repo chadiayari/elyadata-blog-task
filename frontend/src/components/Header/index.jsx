@@ -1,6 +1,3 @@
-import { Link } from "react-router-dom";
-
-import cn from "classnames";
 import styles from "./styles.css";
 
 const Header = () => {

@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import blogService from "../../services/blog-service";
-import Chip from "../../components/Chip";
+import Chip from "../../components/Chip/Chip";
 
 export const BlogPage = () => {
   const [blogData, setBlogData] = useState([]);

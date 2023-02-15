@@ -19,7 +19,7 @@ export default function Buttons({ blog_id, nb_likes, nb_dislikes }) {
   };
 
   const updateApi = async () => {
-    var res = await blogService.updateLikesAndDislikes(blog_id, like, dislike);
+    await blogService.updateLikesAndDislikes(blog_id, like, dislike);
   };
 
   useEffect(() => {
