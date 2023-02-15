@@ -17,7 +17,6 @@ export const BlogPage = () => {
         <div className="blog-wrap">
           <center>
             <p className="blog-date">Published by {blogData.author}</p>
-            <h2>{blogData.blog_name}</h2>
             <div className="blog-subCategory">
               <div>
                 <Chip label={blogData.blog_name} />
