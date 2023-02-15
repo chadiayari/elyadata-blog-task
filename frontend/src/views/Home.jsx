@@ -2,10 +2,7 @@ import React, { useState, useEffect } from "react";
 import styles from "../styles/Search.module.scss";
 import Card from "../components/Card";
 import cn from "classnames";
-import { HiOutlineSearch } from "react-icons/hi";
 import blogService from "../services/blog-service";
-import { searchService } from "../utils/hooks/utils";
-import Buttons from "../components/Buttons";
 
 export default function Home() {
   const [blogsData, setBlogsData] = useState([]);
@@ -20,10 +17,9 @@ export default function Home() {
 
   const handleSearchChanged = (e) => {
     setSearch(e.target.value);
-    var res = blogService
+    blogService
       .searchBlogName(e.target.value)
       .then((data) => setBlogsFilteredData(data));
-    console.log(res);
   };
 
   return (
