@@ -14,3 +14,6 @@ To start the react app, you need to run:
 ### `npm i`
 
 ### `npm start`
+
+Don't forget to create a "elyadata_blog" MongoDB database, with "elyadata_blog" collection name.
+Run it on port 27017.
