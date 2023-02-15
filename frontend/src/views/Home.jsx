@@ -20,8 +20,9 @@ export default function Home() {
 
   const handleSearchChanged = (e) => {
     setSearch(e.target.value);
-    var res = blogService.searchBlogName(e.target.value);
-    setBlogsFilteredData(res);
+    var res = blogService
+      .searchBlogName(e.target.value)
+      .then((data) => setBlogsFilteredData(data));
     console.log(res);
   };
 

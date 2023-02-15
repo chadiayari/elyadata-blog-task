@@ -5,13 +5,13 @@ import styles from "./styles.css";
 
 const Header = () => {
   return (
-    <header id="header" class="fixed-top">
+    <header id="header" className="fixed-top">
       <center>
-        <a href="/" class="nav-btn">
+        <a href="/" className="nav-btn">
           Home Page
         </a>
 
-        <a href="create-blog" class="nav-btn">
+        <a href="create-blog" className="nav-btn">
           Create a new blog
         </a>
       </center>
