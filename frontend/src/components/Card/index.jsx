@@ -9,10 +9,6 @@ const Card = ({ className, item }) => {
     item.blog_content.substr(0, 25)
   );
 
-  useEffect(() => {
-    for (let i = 0; i < 15; i++) {}
-  }, []);
-
   return (
     <div
       className={
